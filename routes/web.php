@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\PriceListController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\LanguageSelectMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,8 @@ Route::group(['prefix' => LanguageSelectMiddleware::getLocale()], function () {
 
 
     Route::post('save-application', ApplicationController::class)->name('save-application');
+
+    Route::get('price-list', PriceListController::class)->name('price-list');
 
 });
 

@@ -6,19 +6,18 @@
             <div class="home__body container">
                 <div class="home__text">
                     <div class="home__title">
-                        <p class="element-animation">ДОСТУПНОСТЬ И ЭКОНОМИЧНОСТЬ В МЕНЯЮЩЕМСЯ МИРЕ.
+                        <p class="element-animation">{{ __('ДОСТУПНОСТЬ И ЭКОНОМИЧНОСТЬ В МЕНЯЮЩЕМСЯ МИРЕ.') }}
 
                         </p>
-                        <p class="element-animation">ИГРАЮТ ЛИ РОЛЬ НИЗКИЕ ЦЕНЫ НА МЕДИЦИНСКОЕ ОБОРУДОВАНИЕ?</p>
+                        <p class="element-animation">{{ __('ИГРАЮТ ЛИ РОЛЬ НИЗКИЕ ЦЕНЫ НА МЕДИЦИНСКОЕ ОБОРУДОВАНИЕ?') }}</p>
 
-                        <p class="element-animation">МЫ ГОТОВЫ СДЕЛАТЬ ДОСТУПНОЙ ДЛЯ ВСЕХ МЕДИЦИНСКУЮ ТЕХНИКУ
-                            ПРЕМИУМ-КЛАССА ОТ ВЕДУЩИХ МИРОВЫХ БРЕНДОВ</p>
+                        <p class="element-animation">{{ __('МЫ ГОТОВЫ СДЕЛАТЬ ДОСТУПНОЙ ДЛЯ ВСЕХ МЕДИЦИНСКУЮ ТЕХНИКУ ПРЕМИУМ-КЛАССА ОТ ВЕДУЩИХ МИРОВЫХ БРЕНДОВ') }}</p>
                     </div>
                     <div class="home__subtitle">
                         <h1 class="element-animation">Sitora Pharm Plus</h1>
                     </div>
                     <div class="home__button">
-                        <a href="">Подробнее</a>
+                        <a href="">{{ __('Подробнее') }}</a>
                     </div>
                 </div>
             </div>
@@ -26,16 +25,12 @@
         <div class="welcome">
             <div class="welcome__body container">
                 <div class="welcome__text">
-                    <p class="element-animation"> <span>ООО «SITORA PHARM PLUS»</span> предлагает медицинское и
-                        лабораторное оборудование в Узбекистане. Наша организация начала продажу медицинского оборудования
-                        в городе Самарканде в 2017 г. и в настоящее время поставляет медицинскую технику, реагенты,
-                        расходные медицинские и лабораторные изделия по всей территории Узбекистана. ООО «SITORA PHARM
-                        PLUS»
-                        является дистрибьютером многих мировых брендов медицинского оборудования. Мы предлагаем низкие цены
-                        на медицинское оборудование из Китая, медицинские аппараты из Индии, Европы, США, Японии и других
-                        стран</p>
-                    <p class="element-animation">Основной профиль нашей компании – проектирование и оснащение больниц и
-                        частных клиник медицинским оборудованием «под ключ» по ценам производителей.</p>
+                    <p class="element-animation"> <span>ООО «SITORA PHARM PLUS»</span>
+                        {{ __('предлагает медицинское и лабораторное оборудование в Узбекистане.') }}
+                        {{ __('Наша организация начала продажу медицинского оборудования в городе Самарканде в 2017 г. и в настоящее время поставляет медицинскую технику, реагенты, расходные медицинские и лабораторные изделия по всей территории Узбекистана.') }}
+                        {{ __('ООО «SITORA PHARM PLUS» является дистрибьютером многих мировых брендов медицинского оборудования.') }}
+                        {{ __('Мы предлагаем низкие цены на медицинское оборудование из Китая, медицинские аппараты из Индии, Европы, США, Японии и других стран.') }}</p>
+                    <p class="element-animation">{{ __('Основной профиль нашей компании – проектирование и оснащение больниц и частных клиник медицинским оборудованием «под ключ» по ценам производителей') }}</p>
                 </div>
             </div>
         </div>
@@ -210,7 +205,9 @@
                         <div class="swiper-wrapper">
                             @foreach($products as $product)
                                 <a href="{{ route('product', ['id' => $product->id, 'slug' => $product->slug]) }}"
-                                   class="products__item item-products swiper-slide popular-product">
+                                   class="products__item item-products swiper-slide @if($product->type_product == 'popular') popular-product @endif
+                                   @if($product->type_product == 'new') new-product @endif
+                                   ">
                                     <div class="item-products__image">
                                         <img src="{{ asset('storage/'. $product->image) }}" alt="product">
                                     </div>

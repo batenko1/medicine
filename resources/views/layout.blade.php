@@ -117,10 +117,12 @@
         <div class="main-header">
             <div class="main-header__body container">
                 <div class="main-header__catalog catalog-header">
+                    @if(!in_array(Route::currentRouteName(), ['catalog', 'category', 'subcategory', 'product']))
                     <div class="catalog-header__button">
                         <div class="catalog-header__icon"><span></span><span></span><span></span></div>
                         <div id="menuText">{{ __('Каталог') }}</div>
                     </div>
+                    @endif
                     <div class="catalog-header__body">
                         <div class="catalog-header__body-close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30px"
@@ -134,7 +136,7 @@
                         <div class="catalog-header__cards">
                             @foreach($composerCategories as $composerCategory)
                                 <div class="catalog-header__card">
-                                    <a href="{{ route('catalog', $composerCategory->slug) }}"
+                                    <a href="{{ route('category', $composerCategory->slug) }}"
                                        class="catalog-header__name">{{ $composerCategory->getTranslatedAttribute('name') }}</a>
                                     <div class="catalog-header__img">
                                         <picture>
