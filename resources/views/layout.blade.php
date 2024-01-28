@@ -25,7 +25,10 @@
 </head>
 
 <body>
-<div class="wrapper">
+<div class="wrapper
+ @if(in_array(Route::currentRouteName(), ['product', 'subcategory', 'catalog'])) wrapper-catalog @endif
+     @if(in_array(Route::currentRouteName(), ['category'])) wrapper-category @endif"
+>
     <div class="preloader">
         <div class="preloader-body">
             <div class="cssload-container">
