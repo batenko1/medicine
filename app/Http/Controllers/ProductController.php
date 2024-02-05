@@ -15,7 +15,7 @@ class ProductController extends Controller
 
         $breadcrumbs = [
             route('category', $product->categoryId->parentId->slug) => $product->categoryId->parentId->getTranslatedAttribute('name'),
-            route('subcategory', ['category' => $product->categoryId->slug, 'subcategory' => $product->categoryId->slug]) => $product->categoryId->getTranslatedAttribute('name'),
+            route('subcategory', ['category' => $product->categoryId->parentId->slug, 'subcategory' => $product->categoryId->slug]) => $product->categoryId->getTranslatedAttribute('name'),
             '' => $product->getTranslatedAttribute('title')
         ];
 

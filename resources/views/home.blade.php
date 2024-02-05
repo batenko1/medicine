@@ -209,7 +209,8 @@
                                    @if($product->type_product == 'new') new-product @endif
                                    ">
                                     <div class="item-products__image">
-                                        <img src="{{ asset('storage/'. $product->image) }}" alt="product">
+{{--                                        <img src="{{ asset('storage/'. $product->image) }}" alt="product">--}}
+                                        <img src="{{Voyager::image($product->thumbnail('cropped'))}}" alt="product">
                                     </div>
                                     <div class="item-products__info">
                                         <div class="item-products__name">
